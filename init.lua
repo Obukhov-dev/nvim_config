@@ -15,4 +15,5 @@ require('plugins.comments')
 require('plugins.gitsigns')
 require('plugins.lualine')
 require('plugins.whichkey')
-
+require('plugins.presence')
+require('plugins.vimtex')

@@ -12,6 +12,31 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+    -- {
+    --     "phaazon/hop.nvim",
+    --     version = "2.x",
+    --             keys = {
+    --         { mode = "n", "f" },
+    --         { mode = "n", "S" },
+    --         { mode = "o", "f" },
+    --     },
+    -- },
+    ---latex---
+    {
+        "lervag/vimtex",
+    },
+    { "folke/flash.nvim",
+            event = "VeryLazy",
+        ---@type Flash.Config
+            opts = {},
+        -- stylua: ignore
+            keys = {
+        { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+        { "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+        { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+        { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+        { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },},
+    },          
 	{ 'nvim-neo-tree/neo-tree.nvim',
 		branch = 'v2.x',
 		dependencies = {
@@ -33,4 +58,6 @@ require("lazy").setup({
     { 'lewis6991/gitsigns.nvim' },
     { 'nvim-lualine/lualine.nvim' },
     { 'folke/which-key.nvim' },
+    { 'andweeb/presence.nvim' },
+    {'akinsho/toggleterm.nvim', version = "*", config = true},
 })
